@@ -675,7 +675,7 @@ def get_diffusers_sd_refiner_model(model_config, vae_ckpt, sampler_name, enable_
         if refiner_ckpt != "None":
             refiner_checkpoint_path= os.path.join(curr_dir_path, 'models', 'Stable-diffusion', refiner_ckpt)
             refiner_checkpoint_info = CheckpointInfo(refiner_checkpoint_path)
-            refiner_model = StableDiffusionXLImg2ImgPipeline.from_single_file(refiner_checkpoint_path, use_safetensors=True, torch_dtype=torch.float32)
+            refiner_model = StableDiffusionImg2ImgPipeline.from_single_file(refiner_checkpoint_path, use_safetensors=True, torch_dtype=torch.float32)
             refiner_model.watermark = NoWatermark()
             refiner_model.sd_checkpoint_info = refiner_checkpoint_info
             refiner_model.sd_model_hash = refiner_checkpoint_info.calculate_shorthash()
